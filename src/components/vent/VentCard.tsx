@@ -31,7 +31,7 @@ export function VentCard({ vent, onHug }: Props) {
         )}
       </div>
       <div className="mt-[6px] flex items-center gap-[10px] pl-[14px]">
-        <button type="button" onClick={() => onHug(vent)} aria-pressed={vent.huggedByMe} aria-label={vent.huggedByMe ? 'Remove hug' : 'Send a hug'} className="flex items-center gap-1 transition active:scale-90">
+        <button type="button" onClick={() => onHug(vent)} disabled={vent.isMine} aria-pressed={vent.huggedByMe} aria-label={vent.huggedByMe ? 'Remove hug' : 'Send a hug'} className="flex items-center gap-1 transition active:scale-90">
           <img src={vent.huggedByMe ? hugFilled : hugOutline} alt="" className="size-[21px]" />
           {vent.hugCount > 0 && <span className="text-micro font-medium text-[#d9d9d9]">{vent.hugCount}</span>}
         </button>

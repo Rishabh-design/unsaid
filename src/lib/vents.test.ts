@@ -14,9 +14,11 @@ describe('Vent Space (on-device preview mode)', () => {
     expect(v.body).toBe('heavy day')
     expect(v.isMine).toBe(true)
 
-    const hug = await vents.toggleHug(v.id)
+    await expect(vents.toggleHug(v.id)).rejects.toThrow(/own vent/)
+    await db.demoVents.add({ id: 'other', body: 'someone else', createdAt: Date.now(), isMine: 0, hugCount: 0, huggedByMe: 0, replies: [] })
+    const hug = await vents.toggleHug('other')
     expect(hug).toEqual({ hugged: true, hugCount: 1 })
-    expect((await vents.toggleHug(v.id)).hugged).toBe(false)
+    expect((await vents.toggleHug('other')).hugged).toBe(false)
 
     await vents.reply(v.id, 'you’re not alone')
     const detail = await vents.get(v.id)

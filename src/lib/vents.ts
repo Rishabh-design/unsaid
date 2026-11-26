@@ -82,6 +82,7 @@ function friendly(message: string): string {
   if (/rate/i.test(message)) return 'You’ve shared a lot in a short time. Take a breath and try again in a little while.'
   if (/length|empty/i.test(message)) return 'That message is too long or empty.'
   if (/not found|expired/i.test(message)) return 'This vent has already faded away.'
+  if (/own vent/i.test(message)) return 'You can’t hug your own vent — but someone else might.'
   return 'Couldn’t reach Vent Space. Check your connection and try again.'
 }
 
@@ -206,6 +207,7 @@ class LocalVentService implements VentService {
   async toggleHug(id: string) {
     const d = await db.demoVents.get(id)
     if (!d) throw new VentError(friendly('not found'))
+    if (d.isMine) throw new VentError(friendly('own vent'))
     const hugged = !d.huggedByMe
     const hugCount = Math.max(0, d.hugCount + (hugged ? 1 : -1))
     await db.demoVents.update(id, { huggedByMe: hugged ? 1 : 0, hugCount })
