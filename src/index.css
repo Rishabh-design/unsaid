@@ -1,0 +1,167 @@
+@import '@fontsource-variable/unbounded';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/montserrat/wght-italic.css';
+@import 'tailwindcss';
+
+/*
+ * UNSAID design tokens, taken from the Figma file.
+ * Colours are CSS variables so the Light mode setting can swap them.
+ * Spacing stays in px; text sizes are rem so the Font size setting scales text only.
+ */
+@theme {
+  --spacing: 4px;
+
+  --font-display: 'Unbounded Variable', 'Unbounded', system-ui, sans-serif;
+  --font-body: 'Montserrat Variable', 'Montserrat', system-ui, sans-serif;
+
+  --color-ink: var(--c-ink);
+  --color-deep: var(--c-deep);
+  --color-card: var(--c-card);
+  --color-teal: #00627a;
+  --color-teal-bright: #00b3e0;
+  --color-teal-mid: #018fb2;
+  --color-mist: var(--c-mist);
+  --color-sage: var(--c-sage);
+  --color-fg: var(--c-fg);
+  --color-line: var(--c-line);
+
+  /* Design sizes (px at 16px root): 8, 10, 12, 15, 20, 24, 30 */
+  --text-micro: 0.5rem;
+  --text-caption: 0.625rem;
+  --text-body: 0.75rem;
+  --text-lead: 0.9375rem;
+  --text-title: 1.25rem;
+  --text-h2: 1.5rem;
+  --text-h1: 1.875rem;
+
+  --radius-card: 20px;
+  --radius-pill: 50px;
+}
+
+:root {
+  --c-ink: #000609;
+  --c-deep: #001014;
+  --c-card: #1e2b32;
+  --c-mist: #dbdbdb;
+  --c-sage: #567d7e;
+  --c-fg: #ffffff;
+  --c-line: rgba(219, 219, 219, 0.3);
+  --c-title-from: #dbdbdb;
+  --c-title-to: rgba(117, 117, 117, 0.5);
+  --c-card-title-to: #567d7e;
+  color-scheme: dark;
+  /* Text scales with the phone width the way the 402px-wide Figma frame does. */
+  --font-scale: 1;
+  /* 38px side gutters at 402px wide, as in Figma */
+  --gutter: clamp(22px, 9.45vw, 38px);
+  font-size: calc(clamp(14px, 100vw * 16 / 402, 17px) * var(--font-scale));
+}
+
+:root[data-theme='light'] {
+  --c-ink: #eef3f4;
+  --c-deep: #e2ebed;
+  --c-card: #d3e0e3;
+  --c-mist: #1d2a2f;
+  --c-sage: #3f6264;
+  --c-fg: #0b1418;
+  --c-line: rgba(11, 20, 24, 0.25);
+  --c-title-from: #0b1418;
+  --c-title-to: rgba(11, 20, 24, 0.45);
+  --c-card-title-to: #3f6264;
+  color-scheme: light;
+}
+
+:root[data-font='small'] { --font-scale: 1; }
+:root[data-font='medium'] { --font-scale: 1.1; }
+:root[data-font='large'] { --font-scale: 1.22; }
+
+html,
+body {
+  background: #000609;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--c-fg);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+@layer components {
+  /* Big gradient headings: "How was your day today ?" */
+  .title-gradient {
+    background-image: linear-gradient(90deg, var(--c-title-from), var(--c-title-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Card headings: "Wanna Talk about it ?" */
+  .card-title-gradient {
+    background-image: linear-gradient(90deg, var(--c-title-from), var(--c-card-title-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .teal-text-gradient {
+    background-image: linear-gradient(90deg, #00627a, #00b3e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Outlined button with the inner teal glow used across the app */
+  .btn-glow {
+    border: 1px solid #00627a;
+    background: var(--c-ink);
+    box-shadow: inset 0 4px 4px rgba(0, 98, 122, 0.5);
+  }
+
+  /* Filled button: teal fading into the background */
+  .btn-fill {
+    background-image: linear-gradient(180deg, #00627a, var(--c-ink));
+  }
+
+  .card-outline {
+    border: 0.5px solid var(--c-line);
+    background: rgba(219, 219, 219, 0.01);
+  }
+
+  /* Vent cards */
+  .vent-card {
+    border: 0.25px solid rgba(219, 219, 219, 0.6);
+    background-image: linear-gradient(90deg, var(--c-deep) 27%, var(--c-card));
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

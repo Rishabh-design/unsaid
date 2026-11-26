@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="698.015" height="698.015" viewBox="0 0 698.015 698.015" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 150">
+<circle id="Ellipse 91" cx="349.008" cy="349.008" r="349.008" fill="url(#paint0_linear_0_25)"/>
+<path id="Vector 10" d="M209.397 467.677H488.603" stroke-width="37.3304" stroke-linecap="round" stroke="#DBDBDB"/>
+<path id="Vector 11" d="M146.585 258.267H286.188" stroke-width="20.9405" stroke-linecap="round" stroke="#DBDBDB"/>
+<path id="Vector 12" d="M404.849 258.267H544.452" stroke-width="20.9405" stroke-linecap="round" stroke="#DBDBDB"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_25" x1="0" y1="349.008" x2="698.015" y2="349.008" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00627A"/>
+<stop offset="1" stop-color="#001014"/>
+</linearGradient>
+</defs>
+</svg>

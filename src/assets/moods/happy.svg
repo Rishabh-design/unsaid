@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="698.015" height="698.015" viewBox="0 0 698.015 698.015" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 153">
+<circle id="Ellipse 91" cx="349.008" cy="349.008" r="349.008" fill="url(#paint0_linear_0_31)"/>
+<g id="Group 154">
+<path id="Vector 14" d="M453.173 240.328C501.802 240.328 519.485 259.484 519.485 259.484C519.485 259.484 515.064 216.382 453.173 216.382C391.283 216.382 386.862 259.484 386.862 259.484C386.862 259.484 404.545 240.328 453.173 240.328Z" fill="#D9D9D9" stroke-width="9.94672" stroke-linecap="round" stroke="#DBDBDB"/>
+<path id="Vector 13" d="M229.806 240.328C278.435 240.328 296.118 259.484 296.118 259.484C296.118 259.484 291.697 216.382 229.806 216.382C167.916 216.382 163.495 259.484 163.495 259.484C163.495 259.484 181.178 240.328 229.806 240.328Z" fill="#D9D9D9" stroke-width="9.94672" stroke-linecap="round" stroke="#DBDBDB"/>
+</g>
+<path id="Vector 15" d="M344.725 456.804C457.338 456.804 498.288 369.939 498.288 369.939C498.288 369.939 488.051 565.384 344.725 565.384C201.399 565.384 191.162 369.939 191.162 369.939C191.162 369.939 232.112 456.804 344.725 456.804Z" fill="#001014" fill-opacity="0.4" stroke-width="20.7391" stroke-linecap="round" stroke="#DBDBDB"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_31" x1="0" y1="349.008" x2="698.015" y2="349.008" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00627A"/>
+<stop offset="1" stop-color="#001014"/>
+</linearGradient>
+</defs>
+</svg>
