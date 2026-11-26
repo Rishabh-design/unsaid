@@ -64,8 +64,10 @@ Recommended before launch: turn on **CAPTCHA for anonymous sign-ins** (Authentic
 ## Deploy (Vercel)
 
 1. Import this GitHub repo at [vercel.com/new](https://vercel.com/new). It detects Vite automatically (`vercel.json` is included).
-2. Add the two `VITE_SUPABASE_*` environment variables.
-3. Deploy. Every push to `main` redeploys.
+2. Deploy. The public Supabase URL and publishable key are in [`.env.production`](.env.production), so no environment variables are needed. (Variables set in Vercel override that file, if you ever point at another project.)
+3. Every push to `main` redeploys.
+
+Live: **https://unsaid-in.vercel.app**
 
 On a phone, open the site and use **Share → Add to Home Screen** (iOS) or **Install app** (Android) to get it as an app.
 
